@@ -11,7 +11,7 @@ USER root
     # passwordless sudo for users in the 'sudo' group
     ## && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 RUN apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates
-RUN apt-get install -y python-software-properties
+RUN apt-get install -y python-software-properties multitail
 #RUN touch /etc/apt/sources.list.d/ondrej-php5.list
 #RUN echo "deb http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main" >> /etc/apt/sources.list.d/ondrej-php5.list
 #RUN echo "deb-src http://ppa.launchpad.net/ondrej/php5/ubuntu trusty main" >> /etc/apt/sources.list.d/ondrej-php5.list
