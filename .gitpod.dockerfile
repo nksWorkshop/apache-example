@@ -86,7 +86,7 @@ RUN mysqld --daemonize --skip-grant-tables \
 #    && ( mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"root\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" ) \
 #    && mysqladmin -uroot -proot shutdown;
 USER root
-EXPOSE 8000
+#EXPOSE 8000
 EXPOSE 8001
 EXPOSE 8002
 CMD ["/bin/bash", "/start.sh"]
