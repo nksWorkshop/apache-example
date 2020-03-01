@@ -59,6 +59,17 @@ RUN chmod 755 /start.sh
 RUN chmod 755 /etc/apache2/foreground.sh
 RUN a2enmod rewrite 
 RUN mkdir /var/log/supervisor/
+RUN chown -R gitpod:gitpod /etc/apache2 /var/run/apache2 /var/lock/apache2 /var/log/apache2 \
+    && chown -R gitpod:gitpod /etc/nginx /var/run/nginx /var/lib/nginx/ /var/log/nginx/
+USER gitpod
+RUN export APACHE_SERVER_NAME=$(gp url 8001 | sed -e s/https:\\/\\/// | sed -e s/\\///)
+RUN export APACHE_RUN_USER="gitpod"
+RUN export APACHE_RUN_GROUP="gitpod"
+RUN export APACHE_RUN_DIR=/var/run/apache2
+RUN export APACHE_PID_FILE="$APACHE_RUN_DIR/apache.pid"
+RUN export APACHE_LOCK_DIR=/var/lock/apache2
+RUN export APACHE_LOG_DIR=/var/log/apache2
+USER root
 #RUN sudo mysqld --daemonize --skip-grant-tables \
 #    && sleep 3 \
 #    && ( mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"root\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" ) \
