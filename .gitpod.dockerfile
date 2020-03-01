@@ -72,6 +72,7 @@ USER root
 RUN mkdir /var/run/mysqld \
  && chown -R gitpod:gitpod /var/run/mysqld /usr/share/mysql /var/lib/mysql /var/log/mysql /etc/mysql
 USER gitpod
+RUN ls -asil /var/lib/mysql
 RUN mysqld --daemonize --skip-grant-tables \
     && sleep 3 \
     && ( mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"root\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" ) \
