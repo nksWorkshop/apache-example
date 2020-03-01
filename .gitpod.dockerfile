@@ -69,4 +69,4 @@ RUN chown gitpod:gitpod /etc/apache2/apache2.conf
 ENV APACHE_DOCROOT_IN_REPO="www"
 
 
-sudo apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates
+#sudo apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates
