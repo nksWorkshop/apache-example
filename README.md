@@ -2,7 +2,7 @@
 
 ## Try or Contribute
 
-open [https://github.com/nksWorkshop/apache-example](https://github.com/nksWorkshop/apache-example)
+open [https://gitpod.io/#https://github.com/nksWorkshop/apache-example](https://gitpod.io/#https://github.com/nksWorkshop/apache-example)
 
 ## What this Example does
 
