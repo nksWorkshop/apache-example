@@ -16,5 +16,5 @@ tasks:
 - name: Apache
   command: >
     bash /workspace/apache-example/scripts/start.sh &&
-    apachectl start &&
-    multitail /var/log/apache2/access.log -I /var/log/apache2/error.log
+    apachectl start && sleep 10 &&
+    multitail /var/log/apache2/access.log -I /var/log/apache2/error.log && clear
