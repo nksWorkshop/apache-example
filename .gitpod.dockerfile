@@ -71,7 +71,7 @@ RUN export APACHE_LOG_DIR=/var/log/apache2
 USER root
 RUN mkdir /var/run/mysqld \
  && chown -R gitpod:gitpod /var/run/mysqld /usr/share/mysql /var/lib/mysql /var/log/mysql /etc/mysql
-
+USER gitpod
 RUN mysqld --daemonize --skip-grant-tables \
     && sleep 3 \
     && ( mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"root\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" ) \
@@ -80,7 +80,7 @@ RUN mysqld --daemonize --skip-grant-tables \
 #    && sleep 3 \
 #    && ( mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"root\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" ) \
 #    && mysqladmin -uroot -proot shutdown;
-
+USER root
 EXPOSE 8000
 CMD ["/bin/bash", "/start.sh"]
 # optional: use a custom apache config.
