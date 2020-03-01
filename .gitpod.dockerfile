@@ -16,7 +16,8 @@ ADD ./configs/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN sudo rm -rf /var/www/
 # ADD https://github.com/rapid7/hackazon/archive/master.zip /hackazon-master.zip
 RUN sudo wget https://github.com/rapid7/hackazon/archive/master.zip -O /hackazon-master.zip
-RUN sudo unzip /hackazon-master.zip -d hackazon
+RUN sudo unzip /hackazon-master.zip -d /hackazon
+RUN ls /
 RUN sudo mkdir /var/www/
 RUN sudo mv /hackazon/hackazon-master/ /var/www/hackazon
 RUN sudo cp /var/www/hackazon/assets/config/db.sample.php /var/www/hackazon/assets/config/db.php
