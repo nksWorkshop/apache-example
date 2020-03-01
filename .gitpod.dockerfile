@@ -37,7 +37,7 @@ RUN sudo mkdir /var/log/supervisor/
 EXPOSE 80
 CMD ["/bin/bash", "/start.sh"]
 # optional: use a custom apache config.
-COPY apache.conf /etc/apache2/apache2.conf
+# COPY apache.conf /etc/apache2/apache2.conf
 
 # optional: change document root folder. It's relative to your git working copy.
 ENV APACHE_DOCROOT_IN_REPO="www"
