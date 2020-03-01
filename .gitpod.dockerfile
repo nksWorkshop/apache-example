@@ -48,6 +48,10 @@ RUN sudo chmod 755 /start.sh
 RUN sudo chmod 755 /etc/apache2/foreground.sh
 RUN sudo a2enmod rewrite 
 RUN sudo mkdir /var/log/supervisor/
+RUN sudo mysqld --daemonize --skip-grant-tables \
+    && sleep 3 \
+    && ( mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"root\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" ) \
+    && mysqladmin -uroot -proot shutdown;
 
 EXPOSE 8000
 CMD ["/bin/bash", "/start.sh"]
