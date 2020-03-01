@@ -83,6 +83,8 @@ RUN mysqld --daemonize --skip-grant-tables \
 #    && mysqladmin -uroot -proot shutdown;
 USER root
 EXPOSE 8000
+EXPOSE 8001
+EXPOSE 8002
 CMD ["/bin/bash", "/start.sh"]
 # optional: use a custom apache config.
 COPY ./apache/apache.conf /etc/apache2/apache2.conf
