@@ -7,9 +7,9 @@ RUN sudo apt-get update
 RUN sudo apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive sudo apt-get -y install wget mysql-client mysql-server apache2 libapache2-mod-php php-mysql pwgen python-setuptools vim-tiny php-ldap unzip
 RUN sudo apt-get install -y php5.6 
-RUN sudo update-alternatives --set php /usr/bin/php5.6
-RUN sudo update-alternatives --set phpize /usr/bin/phpize5.6
-RUN sudo update-alternatives --set php-config /usr/bin/php-config5.6
+#RUN sudo update-alternatives --set php /usr/bin/php5.6
+#RUN sudo update-alternatives --set phpize /usr/bin/phpize5.6
+#RUN sudo update-alternatives --set php-config /usr/bin/php-config5.6
 #RUN sudo a2dismod php7.3
 #RUN sudo a2enmod php5.6
 # setup hackazon
