@@ -34,6 +34,7 @@ RUN cd /var/www/hackazon && sudo php composer.phar self-update && sudo php compo
 #RUN sudo chown -R www-data:www-data /var/www/hackazon/web/products_pictures/
 #RUN sudo chown -R www-data:www-data /var/www/hackazon/web/upload
 #RUN sudo chown -R www-data:www-data /var/www/hackazon/assets/config
+RUN sudo chown gitpod:gitpod /etc/hosts
 RUN sudo chown -R gitpod:gitpod /var/www/
 RUN sudo chown -R gitpod:gitpod /var/www/hackazon/web/products_pictures/
 RUN sudo chown -R gitpod:gitpod /var/www/hackazon/web/upload
