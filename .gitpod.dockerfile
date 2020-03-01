@@ -3,7 +3,7 @@
 FROM ubuntu:16.04
 RUN apt-get update
 RUN apt-get install -y python-software-properties
-RUN add-apt-repository -y ppa:ondrej/php5-compat
+RUN add-apt-repository -y ppa:ondrej/php
 RUN apt-get update
 RUN apt-get install -y php5.6 
 RUN apt-get -y upgrade
