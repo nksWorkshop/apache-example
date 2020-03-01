@@ -25,6 +25,8 @@ RUN sudo cp /var/www/hackazon/assets/config/email.sample.php /var/www/hackazon/a
 ADD ./configs/parameters.php /var/www/hackazon/assets/config/parameters.php
 ADD ./configs/rest.php /var/www/hackazon/assets/config/rest.php
 ADD ./configs/createdb.sql /var/www/hackazon/database/createdb.sql
+RUN sudo apt-get install -y php-xml php-bcmath
+RUN cd /var/ww/hackazon && php composer.phar self-update && php composer.phar install -o --prefer-dist
 #RUN sudo chown -R www-data:www-data /var/www/
 #RUN sudo chown -R www-data:www-data /var/www/hackazon/web/products_pictures/
 #RUN sudo chown -R www-data:www-data /var/www/hackazon/web/upload
