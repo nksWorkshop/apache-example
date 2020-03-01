@@ -4,7 +4,7 @@ RUN sudo add-apt-repository -y ppa:ondrej/php
 RUN sudo apt-get update
 
 RUN sudo apt-get -y upgrade
-RUN DEBIAN_FRONTEND=noninteractive sudo apt-get -y install mysql-client mysql-server apache2 libapache2-mod-php pwgen python-setuptools vim-tiny php-ldap unzip
+RUN DEBIAN_FRONTEND=noninteractive sudo apt-get -y install mysql-client mysql-server apache2 libapache2-mod-php php-mysql pwgen python-setuptools vim-tiny php-ldap unzip
 
 # setup hackazon
 RUN easy_install supervisor
