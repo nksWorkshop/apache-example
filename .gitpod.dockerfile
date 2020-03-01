@@ -8,12 +8,12 @@ RUN DEBIAN_FRONTEND=noninteractive sudo apt-get -y install mysql-client mysql-se
 
 # setup hackazon
 RUN easy_install supervisor
-COPY ./scripts/start.sh /start.sh
+ADD ./scripts/start.sh /start.sh
 ADD ./scripts/passwordHash.php /passwordHash.php
 ADD ./scripts/foreground.sh /etc/apache2/foreground.sh
 ADD ./configs/supervisord.conf /etc/supervisord.conf
 ADD ./configs/000-default.conf /etc/apache2/sites-available/000-default.conf
-RUN rm -rf /var/www/
+RUN sudo rm -rf /var/www/
 ADD https://github.com/rapid7/hackazon/archive/master.zip /hackazon-master.zip
 RUN unzip /hackazon-master.zip -d hackazon
 RUN mkdir /var/www/
