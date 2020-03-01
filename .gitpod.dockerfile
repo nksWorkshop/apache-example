@@ -1,6 +1,6 @@
 #FROM gitpod/workspace-full:latest
 #FROM gitpod/workspace-mysql
-FROM ubuntu/ubuntu:16.04
+FROM ubuntu:16.04
 RUN sudo apt-get install software-properties-common
 RUN sudo add-apt-repository -y ppa:ondrej/php5-compat
 RUN sudo apt-get update
