@@ -1,6 +1,6 @@
 #FROM gitpod/workspace-full:latest
 FROM gitpod/workspace-mysql
-RUN sudo apt-get install python-software-properties
+RUN sudo apt-get install software-properties-common
 RUN sudo add-apt-repository -y ppa:ondrej/php
 RUN sudo apt-get update
 RUN sudo apt-get install -y php5.6 
