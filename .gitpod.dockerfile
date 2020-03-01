@@ -23,6 +23,10 @@ RUN sudo unzip /hackazon-master.zip -d /hackazon
 RUN ls /
 RUN sudo mkdir /var/www/
 RUN sudo mv /hackazon/hackazon-master/ /var/www/hackazon
+RUN sudo cd /var/www/hackazon/assets/config/ && \
+    cp auth.sample.php auth.php && \
+    cp email.sample.php email.php && \
+    cp rest.sample.php rest.php
 RUN sudo cp /var/www/hackazon/assets/config/db.sample.php /var/www/hackazon/assets/config/db.php
 RUN sudo cp /var/www/hackazon/assets/config/email.sample.php /var/www/hackazon/assets/config/email.php
 ADD ./configs/parameters.php /var/www/hackazon/assets/config/parameters.php
