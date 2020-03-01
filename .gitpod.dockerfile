@@ -34,7 +34,7 @@ RUN sudo chmod 755 /etc/apache2/foreground.sh
 RUN sudo a2enmod rewrite 
 RUN sudo mkdir /var/log/supervisor/
 
-EXPOSE 80
+EXPOSE 8000
 CMD ["/bin/bash", "/start.sh"]
 # optional: use a custom apache config.
 # COPY apache.conf /etc/apache2/apache2.conf
