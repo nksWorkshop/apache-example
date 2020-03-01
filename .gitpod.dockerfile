@@ -20,7 +20,7 @@ RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 #RUN add-apt-repository -y ppa:ondrej/php
 RUN apt-get update
 RUN apt-get install -y php5.6 
-RUN apt-get install -y php5.6-xml
+RUN apt-get install -y php5.6-xml php5.6-mbstring
 # RUN apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install wget mysql-client mysql-server apache2 libapache2-mod-php5.6 php5.6-mysql pwgen python-setuptools vim-tiny php5.6-ldap unzip
 RUN easy_install supervisor
