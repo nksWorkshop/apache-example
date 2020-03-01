@@ -25,10 +25,14 @@ RUN sudo cp /var/www/hackazon/assets/config/email.sample.php /var/www/hackazon/a
 ADD ./configs/parameters.php /var/www/hackazon/assets/config/parameters.php
 ADD ./configs/rest.php /var/www/hackazon/assets/config/rest.php
 ADD ./configs/createdb.sql /var/www/hackazon/database/createdb.sql
-RUN sudo chown -R www-data:www-data /var/www/
-RUN sudo chown -R www-data:www-data /var/www/hackazon/web/products_pictures/
-RUN sudo chown -R www-data:www-data /var/www/hackazon/web/upload
-RUN sudo chown -R www-data:www-data /var/www/hackazon/assets/config
+#RUN sudo chown -R www-data:www-data /var/www/
+#RUN sudo chown -R www-data:www-data /var/www/hackazon/web/products_pictures/
+#RUN sudo chown -R www-data:www-data /var/www/hackazon/web/upload
+#RUN sudo chown -R www-data:www-data /var/www/hackazon/assets/config
+RUN sudo chown -R gitpod:gitpod /var/www/
+RUN sudo chown -R gitpod:gitpod /var/www/hackazon/web/products_pictures/
+RUN sudo chown -R gitpod:gitpod /var/www/hackazon/web/upload
+RUN sudo chown -R gitpod:gitpod /var/www/hackazon/assets/config
 RUN sudo chmod 755 /start.sh
 RUN sudo chmod 755 /etc/apache2/foreground.sh
 RUN sudo a2enmod rewrite 
@@ -37,7 +41,7 @@ RUN sudo mkdir /var/log/supervisor/
 EXPOSE 8000
 CMD ["/bin/bash", "/start.sh"]
 # optional: use a custom apache config.
-# COPY apache.conf /etc/apache2/apache2.conf
+COPY apache.conf /etc/apache2/apache2.conf
 
 # optional: change document root folder. It's relative to your git working copy.
 ENV APACHE_DOCROOT_IN_REPO="www"
