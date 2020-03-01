@@ -13,6 +13,8 @@ ADD ./scripts/passwordHash.php /passwordHash.php
 ADD ./scripts/foreground.sh /etc/apache2/foreground.sh
 ADD ./configs/supervisord.conf /etc/supervisord.conf
 ADD ./configs/000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN sudo a2dissite 000-default
+RUN sudo a2ensite 000-default 
 #RUN sudo ln -s /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 RUN sudo rm -rf /var/www/
 # ADD https://github.com/rapid7/hackazon/archive/master.zip /hackazon-master.zip
