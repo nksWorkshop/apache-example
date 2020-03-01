@@ -15,23 +15,23 @@ ADD ./configs/supervisord.conf /etc/supervisord.conf
 ADD ./configs/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN sudo rm -rf /var/www/
 # ADD https://github.com/rapid7/hackazon/archive/master.zip /hackazon-master.zip
-RUN wget https://github.com/rapid7/hackazon/archive/master.zip -O /hackazon-master.zip
-RUN unzip /hackazon-master.zip -d hackazon
-RUN mkdir /var/www/
-RUN mv /hackazon/hackazon-master/ /var/www/hackazon
-RUN cp /var/www/hackazon/assets/config/db.sample.php /var/www/hackazon/assets/config/db.php
-RUN cp /var/www/hackazon/assets/config/email.sample.php /var/www/hackazon/assets/config/email.php
+RUN sudo wget https://github.com/rapid7/hackazon/archive/master.zip -O /hackazon-master.zip
+RUN sudo unzip /hackazon-master.zip -d hackazon
+RUN sudo mkdir /var/www/
+RUN sudo mv /hackazon/hackazon-master/ /var/www/hackazon
+RUN sudo cp /var/www/hackazon/assets/config/db.sample.php /var/www/hackazon/assets/config/db.php
+RUN sudo cp /var/www/hackazon/assets/config/email.sample.php /var/www/hackazon/assets/config/email.php
 ADD ./configs/parameters.php /var/www/hackazon/assets/config/parameters.php
 ADD ./configs/rest.php /var/www/hackazon/assets/config/rest.php
 ADD ./configs/createdb.sql /var/www/hackazon/database/createdb.sql
-RUN chown -R www-data:www-data /var/www/
-RUN chown -R www-data:www-data /var/www/hackazon/web/products_pictures/
-RUN chown -R www-data:www-data /var/www/hackazon/web/upload
-RUN chown -R www-data:www-data /var/www/hackazon/assets/config
-RUN chmod 755 /start.sh
-RUN chmod 755 /etc/apache2/foreground.sh
-RUN a2enmod rewrite 
-RUN mkdir /var/log/supervisor/
+RUN sudo chown -R www-data:www-data /var/www/
+RUN sudo chown -R www-data:www-data /var/www/hackazon/web/products_pictures/
+RUN sudo chown -R www-data:www-data /var/www/hackazon/web/upload
+RUN sudo chown -R www-data:www-data /var/www/hackazon/assets/config
+RUN sudo chmod 755 /start.sh
+RUN sudo chmod 755 /etc/apache2/foreground.sh
+RUN sudo a2enmod rewrite 
+RUN sudo mkdir /var/log/supervisor/
 
 EXPOSE 80
 CMD ["/bin/bash", "/start.sh"]
