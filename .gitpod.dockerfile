@@ -44,7 +44,7 @@ RUN sudo mkdir /var/log/supervisor/
 EXPOSE 8000
 CMD ["/bin/bash", "/start.sh"]
 # optional: use a custom apache config.
-COPY ./apache/apache.conf /etc/apache2/apache2.conf
+#COPY ./apache/apache.conf /etc/apache2/apache2.conf
 RUN sudo chown gitpod:gitpod /etc/apache2/apache2.conf
 
 # optional: change document root folder. It's relative to your git working copy.
