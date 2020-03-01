@@ -41,7 +41,7 @@ RUN cp /var/www/hackazon/assets/config/email.sample.php /var/www/hackazon/assets
 ADD ./configs/parameters.php /var/www/hackazon/assets/config/parameters.php
 ADD ./configs/rest.php /var/www/hackazon/assets/config/rest.php
 ADD ./configs/createdb.sql /var/www/hackazon/database/createdb.sql
-RUN apt-get install -y php-xml php-bcmath
+RUN apt-get install -y php5.6-xml php5.6-bcmath
 RUN cd /var/www/hackazon && php composer.phar self-update && php composer.phar install -o --prefer-dist
 #RUN sudo chown -R www-data:www-data /var/www/
 #RUN sudo chown -R www-data:www-data /var/www/hackazon/web/products_pictures/
