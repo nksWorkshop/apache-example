@@ -2,9 +2,10 @@
 #FROM gitpod/workspace-mysql
 FROM ubuntu:16.04
 RUN apt-get update
-RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod \
+RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod 
+#\
     # passwordless sudo for users in the 'sudo' group
-    && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
+    ## && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 RUN apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates
 RUN apt-get install -y python-software-properties
 #RUN touch /etc/apt/sources.list.d/ondrej-php5.list
