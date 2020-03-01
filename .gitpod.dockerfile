@@ -1,4 +1,5 @@
-FROM gitpod/workspace-full:latest
+#FROM gitpod/workspace-full:latest
+FROM gitpod/workspace-mysql
 
 RUN sudo add-apt-repository -y ppa:ondrej/php
 RUN sudo apt-get update
