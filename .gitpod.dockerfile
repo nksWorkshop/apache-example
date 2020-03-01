@@ -20,40 +20,40 @@ ADD ./scripts/passwordHash.php /passwordHash.php
 ADD ./scripts/foreground.sh /etc/apache2/foreground.sh
 ADD ./configs/supervisord.conf /etc/supervisord.conf
 ADD ./configs/000-default.conf /etc/apache2/sites-available/000-default.conf
-RUN sudo a2dissite 000-default
-RUN sudo a2ensite 000-default 
+RUN a2dissite 000-default
+RUN a2ensite 000-default 
 #RUN sudo ln -s /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf
-RUN sudo rm -rf /var/www/
+RUN rm -rf /var/www/
 # ADD https://github.com/rapid7/hackazon/archive/master.zip /hackazon-master.zip
-RUN sudo wget https://github.com/rapid7/hackazon/archive/master.zip -O /hackazon-master.zip
-RUN sudo unzip /hackazon-master.zip -d /hackazon
+RUN wget https://github.com/rapid7/hackazon/archive/master.zip -O /hackazon-master.zip
+RUN unzip /hackazon-master.zip -d /hackazon
 RUN ls /
-RUN sudo mkdir /var/www/
-RUN sudo mv /hackazon/hackazon-master/ /var/www/hackazon
+RUN mkdir /var/www/
+RUN mv /hackazon/hackazon-master/ /var/www/hackazon
 #RUN sudo cd /var/www/hackazon/assets/config/ && \
 #    cp auth.sample.php auth.php && \
 #    cp email.sample.php email.php && \
 #    cp rest.sample.php rest.php
-RUN sudo cp /var/www/hackazon/assets/config/db.sample.php /var/www/hackazon/assets/config/db.php
-RUN sudo cp /var/www/hackazon/assets/config/email.sample.php /var/www/hackazon/assets/config/email.php
+RUN cp /var/www/hackazon/assets/config/db.sample.php /var/www/hackazon/assets/config/db.php
+RUN cp /var/www/hackazon/assets/config/email.sample.php /var/www/hackazon/assets/config/email.php
 ADD ./configs/parameters.php /var/www/hackazon/assets/config/parameters.php
 ADD ./configs/rest.php /var/www/hackazon/assets/config/rest.php
 ADD ./configs/createdb.sql /var/www/hackazon/database/createdb.sql
-RUN sudo apt-get install -y php-xml php-bcmath
-RUN cd /var/www/hackazon && sudo php composer.phar self-update && sudo php composer.phar install -o --prefer-dist
+RUN apt-get install -y php-xml php-bcmath
+RUN cd /var/www/hackazon && php composer.phar self-update && php composer.phar install -o --prefer-dist
 #RUN sudo chown -R www-data:www-data /var/www/
 #RUN sudo chown -R www-data:www-data /var/www/hackazon/web/products_pictures/
 #RUN sudo chown -R www-data:www-data /var/www/hackazon/web/upload
 #RUN sudo chown -R www-data:www-data /var/www/hackazon/assets/config
-RUN sudo chown gitpod:gitpod /etc/hosts
-RUN sudo chown -R gitpod:gitpod /var/www/
-RUN sudo chown -R gitpod:gitpod /var/www/hackazon/web/products_pictures/
-RUN sudo chown -R gitpod:gitpod /var/www/hackazon/web/upload
-RUN sudo chown -R gitpod:gitpod /var/www/hackazon/assets/config
-RUN sudo chmod 755 /start.sh
-RUN sudo chmod 755 /etc/apache2/foreground.sh
-RUN sudo a2enmod rewrite 
-RUN sudo mkdir /var/log/supervisor/
+RUN chown gitpod:gitpod /etc/hosts
+RUN chown -R gitpod:gitpod /var/www/
+RUN chown -R gitpod:gitpod /var/www/hackazon/web/products_pictures/
+RUN chown -R gitpod:gitpod /var/www/hackazon/web/upload
+RUN chown -R gitpod:gitpod /var/www/hackazon/assets/config
+RUN chmod 755 /start.sh
+RUN chmod 755 /etc/apache2/foreground.sh
+RUN a2enmod rewrite 
+RUN mkdir /var/log/supervisor/
 #RUN sudo mysqld --daemonize --skip-grant-tables \
 #    && sleep 3 \
 #    && ( mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"root\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" ) \
@@ -63,7 +63,7 @@ EXPOSE 8000
 CMD ["/bin/bash", "/start.sh"]
 # optional: use a custom apache config.
 #COPY ./apache/apache.conf /etc/apache2/apache2.conf
-RUN sudo chown gitpod:gitpod /etc/apache2/apache2.conf
+RUN chown gitpod:gitpod /etc/apache2/apache2.conf
 
 # optional: change document root folder. It's relative to your git working copy.
 ENV APACHE_DOCROOT_IN_REPO="www"
