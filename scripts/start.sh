@@ -27,7 +27,7 @@ mysql -uroot -p$MYSQL_PASSWORD -e "CREATE DATABASE $HACKAZON_DB; GRANT ALL PRIVI
 mysql -uroot -p$MYSQL_PASSWORD $HACKAZON_DB < "/var/www/hackazon/database/createdb.sql"
 mysql -uroot -p$MYSQL_PASSWORD -e "UPDATE $HACKAZON_DB.tbl_users SET password='${HASHED_PASSWORD}' WHERE username='admin';"
 
-killall mysqld
-sleep 10s
-
-supervisord -n
+#killall mysqld
+#sleep 10s
+echo "it ran" > /home/gitpod/true
+#supervisord -n
