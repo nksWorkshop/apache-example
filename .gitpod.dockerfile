@@ -1,9 +1,9 @@
 #FROM gitpod/workspace-full:latest
 FROM gitpod/workspace-mysql
-
+RUN sudo apt-get install python-software-properties
 RUN sudo add-apt-repository -y ppa:ondrej/php
 RUN sudo apt-get update
-
+RUN sudo apt-get install -y php5.6 
 RUN sudo apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive sudo apt-get -y install wget mysql-client mysql-server apache2 libapache2-mod-php php-mysql pwgen python-setuptools vim-tiny php-ldap unzip
 RUN sudo apt-get install -y php5.6 
