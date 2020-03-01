@@ -15,5 +15,6 @@ tasks:
     echo " * gp open /var/log/apache2/error.log";
 - name: Apache
   command: >
+    bash /workspace/apache-example/scripts/start.sh &&
     apachectl start &&
     multitail /var/log/apache2/access.log -I /var/log/apache2/error.log
