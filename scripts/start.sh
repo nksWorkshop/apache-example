@@ -6,16 +6,17 @@ find /var/lib/mysql -type f -exec touch {} \; && /usr/bin/mysqld_safe &
 sleep 10s
 # Here we generate random passwords
 MYSQL_USER="root"
-MYSQL_PASSWORD=`date +%s|sha256sum|base64|head -c 10`
+MYSQL_PASSWORD="root"
 HACKAZON_DB="hackazon"
 HACKAZON_USER="hackazon"
-HACKAZON_PASSWORD=`date +%s|sha256sum|base64|head -c 10`
+HACKAZON_PASSWORD="hackazon"
+#`date +%s|sha256sum|base64|head -c 10`
 HASHED_PASSWORD=`php /passwordHash.php $HACKAZON_PASSWORD`
 
 #This is so the passwords show up in logs. 
 echo hackazon password: $HACKAZON_PASSWORD
-echo $MYSQL_PASSWORD > /mysql-root-pw.txt
-echo $HACKAZON_PASSWORD > /hackazon-db-pw.txt
+echo $MYSQL_PASSWORD > ./mysql-root-pw.txt
+echo $HACKAZON_PASSWORD > ./hackazon-db-pw.txt
 
 #set DB password in db.php
 sed -i "s/yourdbpass/$HACKAZON_PASSWORD/" /var/www/hackazon/assets/config/db.php
