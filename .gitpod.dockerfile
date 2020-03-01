@@ -2,6 +2,7 @@
 #FROM gitpod/workspace-mysql
 FROM ubuntu:16.04
 RUN apt-get update
+RUN apt -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates
 RUN apt-get install -y python-software-properties
 RUN add-apt-repository -y ppa:ondrej/php
 RUN apt-get update
