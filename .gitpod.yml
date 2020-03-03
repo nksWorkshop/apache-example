@@ -7,12 +7,7 @@ ports:
 tasks:
 - name: Terminal
   command: >
-    echo "";
-    echo "Commands you can try:";
-    echo " * apachectl stop";
-    echo " * apachectl start";
-    echo " * gp open /var/log/apache2/access.log";
-    echo " * gp open /var/log/apache2/error.log";
+    ln -s /var/www/hackazon /workspace/apache-example/hackazon && clear
 - name: Apache
   command: >
     bash /workspace/apache-example/scripts/start.sh &&
