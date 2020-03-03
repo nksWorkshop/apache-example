@@ -374,4 +374,6 @@ info "SecurityTest identified ${NUM_RESULTS} findings."
 # Persist securityTest
 echo "${response}" >"${RESULT_FILE}"
 info "secureCodeBox run completed successfully. Findings written to files '${RESULT_FILE}'."
+jq . job__result.json > nice.json
+gp open nice.json
 exit 0
