@@ -1,5 +1,9 @@
 # Welcome to TEC2020 - Build your own DAST
 
+## Join our RIOT chat for sharing commands, passwords etc.
+
+open [https://riot.im/app/#/room/#tec2020:matrix.org](https://riot.im/app/#/room/#tec2020:matrix.org)
+
 ## Launch your gitpod instance
 
 open [https://gitpod.io/#https://github.com/nksWorkshop/apache-example](https://gitpod.io/#https://github.com/nksWorkshop/apache-example)
