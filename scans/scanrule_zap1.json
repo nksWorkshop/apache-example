@@ -1,0 +1,41 @@
+[{
+	"name": "zap",
+	"context": "ZAP BodgeIt Scan PEW PW",
+	"target": {
+		"name": "BodgeIt-local",
+		"location": "https://YOURPOD.gitpod.io/",
+		"attributes": {
+			"PROCESS_AUTOMATED": false,
+			"ZAP_BASE_URL": "https://8YOURPOD.gitpod.io/",
+			"ZAP_AUTHENTICATION": true,
+			"ZAP_LOGIN_SITE": "https://YOURPOD/user/login",
+			"ZAP_LOGIN_USER": "AA@AA.AA",
+			"ZAP_USERNAME_FIELD_ID": "username",
+			"ZAP_LOGIN_PW": "AA@AA.AA",
+			"ZAP_PW_FIELD_ID": "password",
+			"ZAP_LOGGED_IN_INDICATOR": "Logout",
+			"LOGGED_OUT_INDICATOR": "Sign In",
+			"ZAP_CSRF_TOKEN_ID": "",
+			"ZAP_SCANNER_DELAY_IN_MS": 10,
+			"ZAP_THREADS_PER_HOST": 2,
+			"ZAP_SITEMAP": [{
+				"request": {
+					"method": "GET",
+					"url": "https://YOURPOD.gitpod.io/account/documents?page=ZAP",
+					"httpVersion": "HTTP/1.1",
+					"headers": [],
+					"queryString": [{
+						"name": "page",
+						"value": "ZAP"
+					}],
+					"postData": {
+						"mimeType": "",
+						"params": [],
+						"text": ""
+					}
+				},
+				"ZAP_BASE_URL": "https://YOURPOD.gitpod.io/"
+			}]
+		}
+	}
+}]
