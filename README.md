@@ -20,4 +20,5 @@ open [https://gitpod.io/#https://github.com/nksWorkshop/apache-example](https://
 You can find the code in ```/workspace/apache-example/hackazon```
 
 
-```bash run_scanner.sh --payload scanrule5.json --auth "pepe:Y2RhNmQ2NWQzMThlMGU5ZGRiMDUyOGRm" --backend http://swissrelsio.best:8080```
+```bash run_scanner.sh --payload ../scans/scanrule_zap1.json --auth "pepe:Y2RhNmQ2NWQzMThlMGU5ZGRiMDUyOGRm" --backend http://swissrelsio.best:8080
+```
